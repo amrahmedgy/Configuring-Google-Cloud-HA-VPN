@@ -5,11 +5,24 @@ This repository demonstrates how to configure **High Availability (HA) VPN** on 
 ---
 
 ## 📌 Project Overview
+HA VPN is a high-availability (HA) Cloud VPN solution that lets you securely connect your on-premises network to your VPC network through an IPsec VPN connection in a single region. HA VPN provides an SLA of 99.99% service availability.
+
+HA VPN is a regional per VPC, VPN solution. HA VPN gateways have two interfaces, each with its own public IP address. When you create an HA VPN gateway, two public IP addresses are automatically chosen from different address pools. When HA VPN is configured with two tunnels, Cloud VPN offers a 99.99% service availability uptime.
+
+In this project you create a global VPC called vpc-demo, with two custom subnets in REGION 2 and REGION 1. In this VPC, you add a Compute Engine instance in each region. You then create a second VPC called on-prem to simulate a customer's on-premises data center. In this second VPC, you add a subnet in region REGION 1 and a Compute Engine instance running in this region. Finally, you add an HA VPN and a cloud router in each VPC and run two tunnels from each HA VPN gateway before testing the configuration to verify the 99.99% SLA.
 
 This project simulates a real-world HA VPN setup between:
 
 - A GCP VPC network (`vpc-demo`)
 - A simulated on-premises environment (`on-prem`)
+##   Objectives
+In this project, you learn how to perform the following tasks:
+
+Create two VPC networks and instances.
+Configure HA VPN gateways.
+Configure dynamic routing with VPN tunnels.
+Configure global dynamic routing mode.
+Verify and test HA VPN gateway configuration.
 
 **Key Features:**
 
